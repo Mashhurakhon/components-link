@@ -1,0 +1,15 @@
+body{
+    padding-left: 50px;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.product{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+.product ul{
+    width: 50%;
+}
