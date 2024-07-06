@@ -9,11 +9,22 @@ export class BindingComponent {
   isEditable = true;
 
   str: string = "";
+
   userName: string = "";
   userNick: string = "";
   userEmail: string = "";
-  issetDatas :string[] = [];
+
+  // issetDatas :string[] = [];
+
+  public isShowData = false;
+
   getDatas() {
-    this.issetDatas = [this.userName, this.userNick, this.userEmail]
+    this.isShowData = !this.isShowData;
+    // this.issetDatas = [
+    //   this.userName,
+    //   this.userNick,
+    //   this.userEmail
+    // ]
   }
+
 }
