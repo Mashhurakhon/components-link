@@ -2,10 +2,19 @@
 <input type="text" name="name" [(ngModel)]="userName">
 <input type="text" name="nick" [(ngModel)]="userNick">
 <input type="email" name="email" [(ngModel)]="userEmail">
-<button (click) = "getDatas()">Click</button>
 
-<ol> 
-    <li>{{ issetDatas[0] }}</li>
-    <li>{{ issetDatas[1] }}</li>
-    <li>{{ issetDatas[2] }}</li>
+<button (click)="getDatas()">
+  Click
+</button>
+
+<ol>
+  <!--    <li>{{ issetDatas[0] }}</li>-->
+  <!--    <li>{{ issetDatas[1] }}</li>-->
+  <!--    <li>{{ issetDatas[2] }}</li>-->
+  @if (isShowData) {
+    <li>{{ str }}</li>
+    <li>{{ userName }}</li>
+    <li>{{ userNick }}</li>
+    <li>{{ userEmail }}</li>
+  }
 </ol>
