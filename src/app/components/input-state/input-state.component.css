@@ -1,0 +1,15 @@
+input{
+    margin-right: 10px;
+}
+.warn:focus{
+    outline: 2px solid yellow;
+}
+.error:focus{
+    outline: 2px solid red;
+}
+.success:focus{
+    outline: 2px solid green;
+}
+input:focus{
+    outline: 2px solid blue;
+}

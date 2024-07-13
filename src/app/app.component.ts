@@ -14,6 +14,8 @@ export class AppComponent implements OnInit{
 
   constructor(private fetchApiService: FetchApiService) {}
 
+
+  // products
   ngOnInit(): void {
     this.getProductsQuery();
   }
@@ -30,5 +32,11 @@ export class AppComponent implements OnInit{
     .subscribe(() => {
       this.products = this.products.filter(p => p.id !== productId);
     })
+  }
+
+  items = new Array();
+
+  addItem(item: string) {
+    this.items.push(item);
   }
 }

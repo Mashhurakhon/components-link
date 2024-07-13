@@ -1,0 +1,5 @@
+<input type="text" [(ngModel)]="inputContent" [ngClass]="val" (ngModelChange)="inputData()">
+<button (click)="addData()" [disabled]="isDisabledBtn">Add</button>
+<ol>
+    <li *ngFor="let data of datas">{{ data }}</li>
+</ol>
