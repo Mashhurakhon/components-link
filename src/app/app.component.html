@@ -1,8 +1,8 @@
 <div>
   <app-binding></app-binding>
 </div>
-
-<app-input-state></app-input-state>
+<app-input-state (exIsDisabled)="recieveResult($event)"></app-input-state>
+<button  [disabled]="isDisabledBtn">Add</button> 
 
 <!-- <div class="product" *ngFor="let product of products">
   <ul>

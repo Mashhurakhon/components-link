@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './models/product';
 import { FetchApiService } from './services/fetch-api.service';
-
+import { InputStateComponent } from './components/input-state/input-state.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,8 +9,8 @@ import { FetchApiService } from './services/fetch-api.service';
 })
 export class AppComponent implements OnInit{
   title = 'api-home-work';
-
   products!: Product[];
+  public isDisabledBtn!: boolean;
 
   constructor(private fetchApiService: FetchApiService) {}
 
@@ -20,6 +20,10 @@ export class AppComponent implements OnInit{
     this.getProductsQuery();
   }
 
+  recieveResult(res: boolean) {
+    this.isDisabledBtn = res;
+    console.log(res);
+  }
   getProductsQuery() {
     this.fetchApiService.getProducts()
     .subscribe(products => {
