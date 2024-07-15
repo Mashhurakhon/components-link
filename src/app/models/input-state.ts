@@ -1,3 +1,4 @@
 export interface InputState {
-    str: string,
+    id: string;
+    str: string;
 }

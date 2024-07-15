@@ -15,6 +15,7 @@ import { BindingComponent } from './components/binding/binding.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule
   ],
   providers: [
     provideHttpClient(),
@@ -25,4 +26,5 @@ import { BindingComponent } from './components/binding/binding.component';
 export class AppModule { }import { FormsModule } from '@angular/forms';
 import { SIGNAL } from '@angular/core/primitives/signals';
 import { InputStateComponent } from './components/input-state/input-state.component';
+import { CommonModule } from '@angular/common';
 
