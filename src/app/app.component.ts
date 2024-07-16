@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WordsService} from "./services/words.service";
 import {InputState} from "./models/input-state";
-
+import { InputStateComponent } from './components/input-state/input-state.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,18 +11,22 @@ import {InputState} from "./models/input-state";
 export class AppComponent {
   /** Массив данных для отображения в списке */
   datas: InputState[] = [];
-
+  inputData!: string;
+  
   constructor(
     private wordsService: WordsService) {
   }
 
+  getData(data: string) {
+    this.inputData = data;
+  }
   /**
    * Отправляет данные поля ввода на сервер.
    * Получает текущее значение поля ввода из компонента InputStateComponent,
    * формирует объект InputState и отправляет его на сервер.
    */
   postData(): void {
-    const inputValue = '';
+    const inputValue = this.inputData;
     const inputData: InputState = {id: '', str: inputValue};
 
     this.wordsService.postWords(inputData).subscribe((response: InputState) => {

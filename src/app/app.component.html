@@ -1,5 +1,5 @@
 <div>
-  <app-input-state></app-input-state>
+  <app-input-state (inputData)="getData($event)"></app-input-state>
   <button (click)="postData()">Add</button>
 </div>
 <ul>
