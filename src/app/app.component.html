@@ -1,20 +1,30 @@
 <div>
-  <app-binding></app-binding>
+  <app-input-state></app-input-state>
+  <button (click)="postData()">Add</button>
 </div>
-<app-input-state (exIsDisabled)="recieveResult($event)"></app-input-state>
-<button  [disabled]="isDisabledBtn">Add</button> 
+<ul>
+  <li *ngFor="let data of datas">{{ data.str }}</li>
+</ul>
 
-<!-- <div class="product" *ngFor="let product of products">
-  <ul>
-    <li>Title: {{ product.title }}</li>
-    <li>Price: {{ product.price }}</li>
-    <li>Description: {{ product.description }}</li>
-    <li>Category: {{ product.category }}</li>
-    <li>Rate: {{ product.rating.rate }}</li>
-    <li>Count: {{ product.rating.count }}</li>
-  </ul>
-  <img src="{{ product.image }}" alt="">
-  <button (click) = "deleteProductQuery(product.id)">Delete</button>
-  <button (click) = "deleteProductQuery(product.id)">Delete</button>
+<!--<div>-->
+<!--  <app-binding></app-binding>-->
+<!--</div>-->
+<!--<app-input-state (exIsDisabled)="recieveResult($event)"></app-input-state>-->
+<!--<button  [disabled]="isDisabledBtn">Add</button> -->
 
-</div> -->
+<!--&lt;!&ndash; <div class="product" *ngFor="let product of products">-->
+<!--  <ul>-->
+<!--    <li>Title: {{ product.title }}</li>-->
+<!--    <li>Price: {{ product.price }}</li>-->
+<!--    <li>Description: {{ product.description }}</li>-->
+<!--    <li>Category: {{ product.category }}</li>-->
+<!--    <li>Rate: {{ product.rating.rate }}</li>-->
+<!--    <li>Count: {{ product.rating.count }}</li>-->
+<!--  </ul>-->
+<!--  <img src="{{ product.image }}" alt="">-->
+<!--  <button (click) = "deleteProductQuery(product.id)">Delete</button>-->
+<!--  <button (click) = "deleteProductQuery(product.id)">Delete</button>-->
+
+<!--</div> &ndash;&gt;-->
+
+
