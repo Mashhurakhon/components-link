@@ -1,46 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from './models/product';
-import { FetchApiService } from './services/fetch-api.service';
-import { InputStateComponent } from './components/input-state/input-state.component';
+import {Component, OnInit} from '@angular/core';
+import {WordsService} from "./services/words.service";
+import {InputState} from "./models/input-state";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
-  title = 'api-home-work';
-  products!: Product[];
-  public isDisabledBtn!: boolean;
 
-  constructor(private fetchApiService: FetchApiService) {}
+export class AppComponent {
+  /** Массив данных для отображения в списке */
+  datas: InputState[] = [];
 
-
-  // products
-  ngOnInit(): void {
-    this.getProductsQuery();
+  constructor(
+    private wordsService: WordsService) {
   }
 
-  recieveResult(res: boolean) {
-    this.isDisabledBtn = res;
-    console.log(res);
-  }
-  getProductsQuery() {
-    this.fetchApiService.getProducts()
-    .subscribe(products => {
-      this.products = products;
-    })
-  }
+  /**
+   * Отправляет данные поля ввода на сервер.
+   * Получает текущее значение поля ввода из компонента InputStateComponent,
+   * формирует объект InputState и отправляет его на сервер.
+   */
+  postData(): void {
+    const inputValue = '';
+    const inputData: InputState = {id: '', str: inputValue};
 
-  deleteProductQuery(productId: number): void {
-    this.fetchApiService.deleteProducts(productId)
-    .subscribe(() => {
-      this.products = this.products.filter(p => p.id !== productId);
-    })
+    this.wordsService.postWords(inputData).subscribe((response: InputState) => {
+      this.getWords();
+      // Вызываем этот метод чтоб обновить список данных...
+    });
   }
 
-  items = new Array();
-
-  addItem(item: string) {
-    this.items.push(item);
+  /**
+   * Получает список данных с сервера и обновляет массив datas.
+   * Вызывается после успешного получения данных от сервера.
+   */
+  getWords(): void {
+    this.wordsService.getWords().subscribe((words: InputState[]) => {
+      this.datas = words;
+    });
   }
 }

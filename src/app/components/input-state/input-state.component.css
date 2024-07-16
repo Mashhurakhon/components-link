@@ -1,15 +1,15 @@
-input{
-    margin-right: 10px;
+.default {
+  border: 1px solid #ccc;
 }
-.warn:focus{
-    outline: 2px solid yellow;
+.focus {
+  border: 2px solid blue;
 }
-.error:focus{
-    outline: 2px solid red;
+.warning {
+  border: 2px solid orange;
 }
-.success:focus{
-    outline: 2px solid green;
+.error {
+  border: 2px solid red;
 }
-input:focus{
-    outline: 2px solid blue;
+.success {
+  border: 2px solid green;
 }
