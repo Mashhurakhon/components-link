@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {InputState} from "../../models/input-state";
 
 @Component({
@@ -33,6 +33,11 @@ export class InputStateComponent {
     }
   }
 
+  @Output() inputData = new EventEmitter<string>()
+
+  exportData() {
+    this.inputData.emit(this.inputContent);
+  }
   /**
    * Возвращает текущее состояние поля ввода для установки класса стилей.
    * @returns {string} Текущее состояние поля ввода ('default', 'focus', 'warning', 'error', 'success').
